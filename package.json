@@ -20,11 +20,11 @@
     "@types/mongoose": "^5.11.97",
     "@types/passport": "^1.0.7",
     "@types/passport-local": "^1.0.34",
-    "connect-mongo": "^4.6.0",
-    "tslib": "^2.3.1",
-    "typescript": "^4.5.5"
+    "connect-mongo": "^4.6.0"
   },
   "dependencies": {
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.5",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "dotenv": "^16.0.0",
