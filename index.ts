@@ -20,11 +20,16 @@ import PostRouter from "./routes/Post";
 ////-------------------------------------------------------------------------------------------------------------------------------------
 
 //---------SETUP CORS----------------------------------------------------------------------------------------------------------------------------
-const allowedOrigins = ["http://localhost:3000"];
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://chatspace-jimbui.herokuapp.com/",
+  "https://chatspace-jimbui.netlify.com/",
+];
 const options: cors.CorsOptions = {
   origin: allowedOrigins,
   credentials: true,
 };
+
 app.use(cors(options));
 ////-------------------------------------------------------------------------------------------------------------------------------------
 
