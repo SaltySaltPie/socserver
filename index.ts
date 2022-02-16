@@ -66,7 +66,7 @@ app.get("/", (req: Request, res: Response) => {
   res.status(200).json({ success: true });
 });
 
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Server is running at ${port}`);
 });
