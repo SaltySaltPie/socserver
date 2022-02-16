@@ -23,7 +23,7 @@ import PostRouter from "./routes/Post";
 const allowedOrigins = [
   "http://localhost:3000",
   "https://chatspace-jimbui.herokuapp.com/",
-  "https://chatspace-jimbui.netlify.com/",
+  "https://chatspace-jimbui.netlify.app/",
 ];
 const options: cors.CorsOptions = {
   origin: allowedOrigins,
