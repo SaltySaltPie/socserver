@@ -64,9 +64,13 @@ app.use("/api", ApiRouter);
 
 ////-------------------------------------------------------------------------------------------------------------------------------------
 app.use(express.static("public"));
-app.get("/*", (req: Request, res: Response) => {
+app.get("/", (req: Request, res: Response) => {
   console.log(`Pinged`);
   res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+app.get("/*", (req: Request, res: Response) => {
+  res.redirect("/");
 });
 
 const port = process.env.PORT || 3001;
