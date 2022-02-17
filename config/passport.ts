@@ -12,13 +12,13 @@ passport.use(
   new LocalStrategy(
     { usernameField: "username", passwordField: "password" },
     async (username, password, cb) => {
+      console.log({ username });
       try {
         console.log(`localStrat`);
-        const user = await User.findOne({ username }).select([
-          "username",
-          "hash",
-          "salt",
-        ]);
+        const user = await User.findOne({
+          username: { $regex: `^${username}$`, $options: "i" },
+        }).select(["username", "hash", "salt"]);
+        console.log({ user });
         if (!user) return cb(null, false);
         if (validPassword({ password, hash: user.hash, salt: user.salt })) {
           console.log(`correct pass`);

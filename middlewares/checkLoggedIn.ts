@@ -4,6 +4,7 @@ export const checkLoggedIn = (
   res: Response,
   next: NextFunction
 ) => {
-  if (!req.user) res.status(401).json({ success: false, redirect: "/login" });
+  if (!req.user)
+    return res.status(401).json({ success: false, redirect: "/login" });
   next();
 };

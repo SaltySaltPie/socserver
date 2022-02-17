@@ -21,38 +21,21 @@ import PostRouter from "./routes/Post";
 ////-------------------------------------------------------------------------------------------------------------------------------------
 
 //---------SETUP CORS----------------------------------------------------------------------------------------------------------------------------
-// const allowedOrigins = [
-//   "http://localhost:3000",
-//   "https://chatspace-jimbui.herokuapp.com/",
-//   "https://chatspace-jimbui.netlify.app/",
-//   "https://chatspace-f1a60.web.app/",
-// ];
-// const options: cors.CorsOptions = {
-//   origin: allowedOrigins,
-//   credentials: true,
-// };
-// app.use(cors(options));
 
 app.use(
   cors({
-    origin: "*",
+    credentials: true,
+    origin: [
+      "http://localhost:3000",
+      "https://chatspace-jimbui.herokuapp.com/",
+      "https://chatspace-jimbui.netlify.app/",
+      "https://chatspace-f1a60.web.app/",
+    ],
     methods: "GET, POST, PATCH, DELETE, PUT",
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
-// app.use(
-//   cors({ credentials: true, origin: "*", allowedHeaders: ["Content-Type"] })
-// );
-
-// app.use("*", (req: Request, res: Response, next: NextFunction) => {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   next();
-// });
-// app.all("/*", function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   next();
-// });
 ////-------------------------------------------------------------------------------------------------------------------------------------
 
 //---------SETUP SESSION + STORE----------------------------------------------------------------------------------------------------------------------------
@@ -78,9 +61,7 @@ app.use(passport.session());
 app.use("/test", TestRouter);
 app.use("/auth", AuthRouter);
 app.use("/api", ApiRouter);
-app.use("/posts", PostsRouter);
-app.use("/post", PostRouter);
-app.use("/user", UserRouter);
+
 ////-------------------------------------------------------------------------------------------------------------------------------------
 app.use(express.static("public"));
 app.get("/*", (req: Request, res: Response) => {
